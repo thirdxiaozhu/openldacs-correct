@@ -6,7 +6,7 @@ static polynomial_t reed_solomon_build_generator(field_t field, unsigned int nro
     // generator has order 2*t
     // of form (x + alpha^1)(x + alpha^2)...(x - alpha^2*t)
     for (unsigned int i = 0; i < nroots; i++) {
-        roots[i] = field.exp[(root_gap * (i + first_consecutive_root)) % 255];
+        roots[i] = field.exp[(root_gap * (i + 1)) % 255];
     }
     return polynomial_create_from_roots(field, nroots, roots);
 }
